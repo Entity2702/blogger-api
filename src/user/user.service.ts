@@ -15,7 +15,7 @@ export class UserService {
   if(existingUser){
    throw new ConflictException('User with this email already exists.');
   }
-  
+
   const rounds = 10;
   const hashedPassword = await bcrypt.hash(createUserDto.password, rounds);
 
@@ -23,6 +23,9 @@ export class UserService {
   return createdUser.save();
  }
 
+ async findByEmail(email: string) {
+  return this.userModel.findOne({email});
+ }
 
  
 }
