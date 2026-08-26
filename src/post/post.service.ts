@@ -47,7 +47,7 @@ export class PostService {
  }
 
  async findAll(authorId?: string, title?: string): Promise<Post[]> {
-  const filter = [];
+  const filter = {};
 
   if(authorId) {
    filter['authorId'] = authorId;
@@ -59,4 +59,5 @@ export class PostService {
 
   return this.postModel.find(filter).exec();
  }
+
 }

@@ -11,7 +11,7 @@ import { ConfigService } from '@nestjs/config';
    global: true,
    inject: [ConfigService],
    useFactory: async (configService: ConfigService) =>({
-    secret: configService.get<string>('JWT_SECRET')
+    secret: configService.get<string>('JWT_SECRET'),
    }),
    
   })

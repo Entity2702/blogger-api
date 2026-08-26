@@ -11,7 +11,7 @@ export class Post{
   type: String,
   default: () => randomUUID()
  })
- id!: string
+ _id!: string
 
  @Prop()
  title!: string

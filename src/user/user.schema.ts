@@ -6,18 +6,18 @@ export type UserDocument = HydratedDocument<User>;
 
 @Schema()
 export class User {
+ 
+ @Prop({
+  type: String,
+  default: () => randomUUID()
+ })
+ _id!: string;
 
  @Prop()
  email!: string;
 
  @Prop()
  password!: string;
-
- @Prop({
-  type: String,
-  default: () => randomUUID
- })
- id!: string;
 
 }
 
