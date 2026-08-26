@@ -9,7 +9,7 @@ export type PostDocument = HydratedDocument<Post>;
 export class Post{
  @Prop({
   type: String,
-  default: () => randomUUID
+  default: () => randomUUID()
  })
  id!: string
 
