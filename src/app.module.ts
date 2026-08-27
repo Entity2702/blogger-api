@@ -11,7 +11,7 @@ import { AuthModule } from './auth/auth.module';
 
 
 @Module({
-  imports: [ConfigModule.forRoot({isGlobal: true}), MongooseModule.forRootAsync({
+  imports: [ConfigModule.forRoot({isGlobal: true, expandVariables: true}), MongooseModule.forRootAsync({
     imports: [ConfigModule],
     inject: [ConfigService],
     useFactory: async (config: ConfigService) => ({
