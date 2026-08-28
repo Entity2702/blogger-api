@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { randomUUID } from "crypto";
-import { User } from "src/user/user.schema";
+import { User } from "../user/user.schema";
 import { HydratedDocument } from "mongoose";
 
 export type PostDocument = HydratedDocument<Post>;

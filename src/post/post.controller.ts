@@ -1,10 +1,9 @@
 import { Body, Controller, Patch, Post, Request, Param, Delete, Get, Query } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 import { CreatePostDto } from './dto/create-post.dto';
 import { PostService } from './post.service';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { title } from 'process';
 
 @Controller('post')
 export class PostController {
