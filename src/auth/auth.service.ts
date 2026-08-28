@@ -1,4 +1,4 @@
-import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { SignInDto } from './signin.dto';
 import { UserService } from '../user/user.service';
 import * as bcrypt from 'bcrypt'
@@ -15,7 +15,7 @@ export class AuthService {
   const user = await this.userService.findByEmail(signInDto.email);
 
   if(!user){
-   throw new ConflictException('No user with this email exists. Try creating a new user.');
+   throw new NotFoundException('No user with this email exists. Try creating a new user.');
   }
 
   if(!await bcrypt.compare(signInDto.password,user.password)){
