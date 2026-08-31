@@ -12,6 +12,17 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       - mongo:/data/db
+    
+  api:
+    build: .
+    ports: 
+      - '${PORT}:3000'
+    env_file:
+      - .env 
+    environment:
+      - MONGO_URI=mongodb://${DB_ROOT_USERNAME}:${DB_ROOT_PASSWORD}@database:27017/blog?authSource=admin
+    depends_on:
+      - database
 
 volumes:
   mongo:
